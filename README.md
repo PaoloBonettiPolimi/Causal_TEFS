@@ -1,3 +1,3 @@
 # Causality
 
-Causality experiments and code.
+Experiments and code of the paper "Causal Feature Selection via Transfer Entropy".
