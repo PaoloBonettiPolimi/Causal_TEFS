@@ -1,0 +1,26 @@
+MAIN.py:
+
+given a pickle file containing X as feature array and Y as target array
+given a grid of allowed errors and other args
+returns a dictionary with list of allowed errors, the number of selected features and the positions of the selected features 
+NOTES: it does not standardize and it does not split to validation/test (the training set should be the input)
+          
+
+
+This is done through FEATURE_SELECTION.py:
+
+    backwardFeatureSelection(threshold,features,target,res,k, nproc)
+        given the maximum loss of information allowed, the features and target, the dictionary to store the results, the number of neigh. for MI estimate and the number of processors
+        returns the list of positions of the selected features with CMI FS backward
+
+    forwardFeatureSelection(threshold,features,target,res,k, nproc)
+        same of backward but forward, now the threshold is the minimum amount of information that is needed to consider before stopping
+
+
+
+They use mixedRVMI.py:
+
+    MIEstimate(X,Y,k=5,estimate='digamma') --> computes I(X,Y)
+    CMIEstimate(X,Y,Z,k=5,estimate='digamma') --> computes I(X,Y|Z)
+    estimateAllMI(X,Y,k) --> computes a list of all I(X_i,Y)
+    NOTES: X,Y must be arrays
